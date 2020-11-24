@@ -1,0 +1,92 @@
+body {
+    background-color: ;
+}
+header {
+    background-image: url(http://cifonauta.cebimar.usp.br/site_media/aem_QusY0P.jpg);
+    background-color: rgb(3, 3, 3);
+    max-height: 100%;
+    height: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: justify;
+    
+
+}
+header h1{
+    display: inline-block;
+    margin-left: 300px;
+    color: white;
+}
+nav{
+    display: inline-block;
+    float: right;
+    margin-right: 200px;
+
+}
+
+nav ul a {
+    font-size: 25px;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 10px;
+    
+}
+nav ul a:hover {
+    text-decoration: underline;
+    color: red;
+}
+/** section 1 **/
+
+.photo-stoma {
+    display: inline-block;
+    float: left;
+    margin: 10px;
+}
+.sobre-img {
+    display: inline-block;
+    float: right;
+}
+.first-section {
+    width: auto;
+    max-height: 400px;
+    height: auto;
+}
+
+
+.text-sobre { 
+    width: 50%;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+.aside-sobre {
+    width: 20%;
+    height: auto;
+    float: right;
+    margin-left: 150px;
+}
+.table-info-cientific {
+    border: 1px solid black;
+}
+#footer{
+    background-color: rgb(50, 138, 221);
+    max-height: 300px;
+    min-height: 150px;
+    height: auto;
+    text-align: left;
+}
+footer h3 {
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+#nav-footer {
+    text-decoration: none;
+    text-align: left;
+    float: left;
+}
+
+ h1, h2, h3 {
+     text-align: center;
+ }   
