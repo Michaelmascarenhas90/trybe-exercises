@@ -1,3 +1,6 @@
-console.log('Hello, world!');
+const readline = require('readline-sync');
 
-console.log('Eu sou Michael M. e desenvolvo em nodeJS agora');
+const name = readline.question('What is your name?');
+const age = readline.questionInt('How old are you?');
+
+console.log(`Hello, ${name}! You are ${age} years old!`);
