@@ -12,4 +12,4 @@ function calcularDivisao(num1, num2) {
 
 calcularDivisao(2, 0)
     .then((result) => console.log(result))
-    .catch((err) => console.log(err.message))
+    .catch((err) => console.log(`Erro: ${err.message}`))
