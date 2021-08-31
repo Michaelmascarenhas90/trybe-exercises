@@ -1,12 +1,16 @@
 import React from "react";
+import { listaDeNotas } from "./components/listaDeNotas";
 
 function App() {
   return (
-    <form>
-      <input type="text" placeholder="Título" />
-      <textarea placeholder="Escreva sua nota..."/>
-      <button>Criar Nota</button>
-    </form>
+    <section>
+      <form>
+        <input type="text" placeholder="Título" />
+        <textarea placeholder="Escreva sua nota..."/>
+        <button>Criar Nota</button>
+      </form>
+      <listaDeNotas />
+    </section>
   );
 }
 
