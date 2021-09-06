@@ -18,3 +18,14 @@ fs.readdir('./')
     .then((totalSize) => {
         console.log(`Tamanho total dos arquivos: ${totalSize}`);
     })
+
+
+async function main() {
+    const fileNames = await fs.readdir('./');
+    const files = await Promise.all(
+        fileNames.map((fileName) => fs.readFile(fileName))
+    );
+    const totalSize = files.reduce((total, file) => total + file.byteLength, 0);
+
+    console.log(`Tamanho total dos arquivos: ${totalSize}`);
+}
