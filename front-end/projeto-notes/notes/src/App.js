@@ -4,19 +4,23 @@ import ListaDeNotas from "./components/ListaDeNotas/ListaDeNotas";
 
 import "./assets/App.css";
 import "./assets/reset.css";
-import { Component } from "react";
-
 class App extends React.Component {
 
+  constructor(){
+    super();
+    this.notas=[];
+  }
+
   createCard = (titulo, text) => {
-    console.log(`um novo card foi criado ${titulo}, ${text}`)
+    const novaNota = {titulo, text}
+    this.notas.push(novaNota);
   } 
 
   render() {
     return(
       <section className="conteudo">
         <FormCadastro createCard={ this.createCard } />
-        <ListaDeNotas />
+        <ListaDeNotas notas={ this.notas } />
       </section>
     )
   }
