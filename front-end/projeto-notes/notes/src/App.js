@@ -8,19 +8,26 @@ class App extends React.Component {
 
   constructor(){
     super();
-    this.notas=[];
+    // this.notas = [];
+    this.state = {
+      notas: [],
+    }
   }
 
   createCard = (titulo, text) => {
     const novaNota = {titulo, text}
-    this.notas.push(novaNota);
+    const novoArrayNotas = [...this.state.notas, novaNota]
+    const newState = {
+      notas: novoArrayNotas
+    }
+    this.setState(newState);
   } 
 
   render() {
     return(
       <section className="conteudo">
         <FormCadastro createCard={ this.createCard } />
-        <ListaDeNotas notas={ this.notas } />
+        <ListaDeNotas notas={ this.state.notas } />
       </section>
     )
   }
