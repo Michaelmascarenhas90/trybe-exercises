@@ -1,6 +1,9 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
+
+app.use(bodyParser.json());
 
 const books = [
     { id: 1, title: 'The Lord of Rings', author: 'J.R.R. Tolkien' },
