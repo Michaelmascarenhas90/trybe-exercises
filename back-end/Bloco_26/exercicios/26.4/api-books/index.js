@@ -36,7 +36,17 @@ app.get('/books', (req, res) => {
 })
 
 app.post('/books', (req, res) => {
-    res.send('POST /BOOKS')
+    // validação para que verifica o token de acesso com do usuario
+    const token = req.headers.authorization;
+
+    if (token !== "super-senha") {
+        return res.status(401).json({ message: 'Acesso não autorizado'})
+    }
+
+    const { id, title, author } = req.body;
+    books.push({ id, title, author });
+    // status 201 equivale a novo item criado
+    return res.status(201).json({ message: "New book create!" })
 })
 
 app.put('/books', (req, res) => {
