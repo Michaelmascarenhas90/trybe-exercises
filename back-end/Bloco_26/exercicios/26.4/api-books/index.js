@@ -49,16 +49,34 @@ app.post('/books', (req, res) => {
     return res.status(201).json({ message: "New book create!" })
 })
 
-app.put('/books', (req, res) => {
-    res.send('PUT /BOOKS')
+app.put('/books/:id', (req, res) => {
+    const { id } = req.params;
+    const { title, author } = req.body;
+    const bookIndex = books.findIndex((book) => { book.id === +id });
+
+    if(bookIndex === -1){
+        return res.status(404).send();
+    }
+    // o id que sera usado na atualização sera passado atraves do index.
+    books[bookIndex] = { id:Number(id), title, author };
+    // status 204, a solicitação teve exito porem não precisa de resposta
+    return res.status(204).end();
 })
 
-app.delete('/books', (req, res) => {
-    res.send('DELETE /BOOKS')
+app.delete('/books/:id', (req, res) => {
+    const { id } = req.params;
+    const bookIndex = books.findIndex((book) => { book.id === Number(id) })
+    
+    if (bookIndex === -1) {
+        return res.status(404).send();
+    }
+    books.splice(bookIndex);
+    // o status 204 ocorre quando a requisição teve exito, porem não retorna nada no corpo
+    return res.status(2040).send();
 })
 
 
 
 app.listen(3001, () => {
-    console.log('Example app listening on port 3001')
+    console.log('API rodando na port 3001')
 });
