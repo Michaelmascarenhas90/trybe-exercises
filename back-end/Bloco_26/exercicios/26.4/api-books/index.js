@@ -35,19 +35,37 @@ app.get('/books', (req, res) => {
     return res.json({ books });
 })
 
-app.post('/books', (req, res) => {
-    // validação para que verifica o token de acesso com do usuario
-    const token = req.headers.authorization;
+app.post('/books',
+    (req, res, next) => {
+        // validação para que verifica o token de acesso com do usuario
+        const token = req.headers.authorization;
+    
+        if (token !== "super-senha") {
+            return res.status(401).json({ message: 'Acesso não autorizado'})
+        }
 
-    if (token !== "super-senha") {
-        return res.status(401).json({ message: 'Acesso não autorizado'})
-    }
+        next();
+    },
+    (req, res, next) => {
+        // só é possivel recuperar o body pois já foi configurado o bodyParser
+        const { id, title, author } = req.body;
+        if (!id) {
+            return res.status(400).json({ message: 'Id não preenchido' });
+        }
+        if (!title) {
+            return res.status(400).json({ message: 'title nao preenchido' });
+        }
+        if (!author) {
+            return res.status(400).json({ message: 'Author não preenchido' });
+        }
 
-    const { id, title, author } = req.body;
+        next();
+    },
+    (req, res) => {   
     books.push({ id, title, author });
     // status 201 equivale a novo item criado
     return res.status(201).json({ message: "New book create!" })
-})
+});
 
 app.put('/books/:id', (req, res) => {
     const { id } = req.params;
