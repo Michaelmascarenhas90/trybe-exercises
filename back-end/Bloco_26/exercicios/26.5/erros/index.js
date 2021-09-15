@@ -1,7 +1,14 @@
 import express from 'express';
+// import rescue from 'express-recue';
+import { promises as fs } from 'fs';
+
 import fetch from 'node-fetch';
 
 const app = express();
+
+app.use((error, req, res, next) => {
+    return res.send(500).json({ message: 'erro desconhecido' })
+})
 
 app.get('/fazerRequest', async (req, res) => {
     try {
@@ -20,5 +27,17 @@ app.get('/fazerRequest', async (req, res) => {
     
 
 });
+
+app.get('/lerArquivo', async (req, res, next) => {
+    const { fileName } = req.query;
+    try {
+        const content = await fs.readFile(fileName);
+        res.status(200).json({ content: content.toString() })
+    } catch (error) {
+        // com isso eu configuro para quando ocorrer um erro,
+        // ser direcionado par o middleware especifico
+        next(error);
+    }
+})
 
 app.listen(3002, () => {console.log('http://localhost:3002 -> onde a api esta rodando')});
