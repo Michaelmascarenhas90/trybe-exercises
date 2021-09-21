@@ -1,7 +1,7 @@
 import React from "react";
 import FormCadastro from "./components/FormCadastro/FormCadastro";
 import ListaDeNotas from "./components/ListaDeNotas/ListaDeNotas";
-import Header from "./components/header/Header";
+// import Header from "./components/header/Header";
 
 import "./assets/App.css";
 import "./assets/reset.css";
