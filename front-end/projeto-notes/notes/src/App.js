@@ -22,13 +22,22 @@ class App extends React.Component {
       notas: novoArrayNotas
     }
     this.setState(newState);
-  } 
+  }
+
+  deleteCard = (index) => {
+    const arrayNotas = this.state.notas;
+    arrayNotas.splice(index, 1);
+    this.setState({ notas: arrayNotas })
+  }
 
   render() {
     return(
       <section className="conteudo">
         <FormCadastro createCard={ this.createCard } />
-        <ListaDeNotas notas={ this.state.notas } />
+        <ListaDeNotas
+          deleteCard={ this.deleteCard }
+          notas={ this.state.notas }
+        />
       </section>
     )
   }
