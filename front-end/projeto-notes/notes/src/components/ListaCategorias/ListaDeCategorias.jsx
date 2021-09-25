@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./style.css";
 
 class ListaDeCategorias extends Component {
 
@@ -12,8 +13,8 @@ class ListaDeCategorias extends Component {
     render() {
         const categorias = this.props.categorias;
         return (
-            <section>
-                <ul>
+            <section className="lista-categorias">
+                <ul className="lista-categorias-lista">
                     {
                         categorias.map((categoria, index) => {
                             return (
