@@ -11,7 +11,9 @@ class ListaDeCategorias extends Component {
     }
 
     render() {
+        
         const categorias = this.props.categorias;
+
         return (
             <section className="lista-categorias">
                 <ul className="lista-categorias-lista">

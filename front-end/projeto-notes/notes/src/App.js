@@ -46,7 +46,9 @@ class App extends React.Component {
       <div>
         <Header />
         <section className="conteudo">
-          <FormCadastro createCard={ this.createCard } />
+          <FormCadastro 
+            categorias={ this.state.categorias }
+            createCard={ this.createCard } />
           <main className="conteudo-principal">
             <ListaDeCategorias
               adicionarCategoria={ this.adicionarCategoria }

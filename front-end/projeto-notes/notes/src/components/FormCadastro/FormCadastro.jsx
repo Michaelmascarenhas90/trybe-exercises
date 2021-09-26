@@ -25,11 +25,21 @@ class FormCadastro extends Component {
     }
 
     render() { 
+
+        const categorias = this.props.categorias
+
         return (
             <section>
                 <form className="form-cadastro"
                     onSubmit={ this.createCard }
                 >
+                    <select className="form-cadastro-input">
+                        { categorias.map((categoria) => {
+                            return (
+                                <option>{categoria}</option>
+                            );
+                        }) }
+                    </select>
                     <input 
                         type="text" 
                         placeholder="Título"
